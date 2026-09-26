@@ -1,6 +1,6 @@
 # Introduction
 
-Being part of Cybersecurity is a daunting task; ranging from tasks such as writing periodic intelligence reports, securing network infrastructure and security, 
+Being part of Cyber Security is a daunting task; ranging from tasks such as writing intelligence reports, securing network infrastructure and security, 
 
 ### but most importantly, ensuring sensitive information does not **fall into the wrong hands**.
 <br />
@@ -9,11 +9,11 @@ But that also raises the question, **how does information fall into the wrong ha
 
 So to fix this gap, I dive into the depths of an attacker using Hacker101's **CTF** _(Capture The Flag)_ **gamemode**, learning their tactics and even forming some techniques of my own. <br />
 
-With my previous background specializing in Web Development, this gives me an edge over many other testers since I've have first-hand experience developing web applications and understand how they all work behind the scenes.
+With my previous **background experience** specializing in **Web Development**, this gives me an edge over many other testers since I have first-hand experience developing and implementing features into web applications, so I understand how they all work behind the scenes.
 
 Let's get into it!
 
-##### Also, you can't set up defenses as Cybersecurity if you don't even know what the attacks are! 
+##### Also, you can't set up defenses as Cyber Security if you don't even know what the attacks are! 
 
 # Levels Overview
 
@@ -41,10 +41,14 @@ I'm going to skip ahead to the second level, since the first level is such a tut
 
 **Takeaway:** This one was relatively **simple**. It lacked authorization checks, which as a consequence, allowed all users to act as if they were an admin, because there was nothing authorizing user actions!
 
+<hr />
+
 **Summary**:
 * Post ID Manipulation
 * No Sanitization (XSS, SQLi)
 * SQL Injection
+
+<hr />
 
 
 No penetration tools were needed for this. Simply navigating around the web application to understand how it works was enough to analyze and locate vulnerabilities to exploit it in unintended ways. (or in this context, intended!)
@@ -58,6 +62,8 @@ Anyway, not much to learn here. Let's move onto the next one, which is convenien
 **Takeaway:** This next **easy** difficulty level shows all the many techniques and procedures that attackers may take in invading a web application, ranging from simple inspect element interactions, to techniques like **cookie manipulation**.  <br />
 All in all, this is a **great** level for getting familiar with the basics of every technique an attacker may use against our applications.
 
+<hr />
+
 **Summary**:
 * Post ID Manipulation (again)
 * Brute forcing
@@ -65,8 +71,28 @@ All in all, this is a **great** level for getting familiar with the basics of ev
 * API Manipulation
 * Session Manipulation
 
+<hr />
+
 I used a couple of penetration tools for this, mainly Burp Suite for intercepting internet traffic, and Kali Linux.
 
 TODO: add more
 
+<br />
+
+## Micro-CMS v2
+
+**Takeaway:** This is where levels start applying some form of resistance, which is what I really liked! There can't be a challenge if there isn't any resistance at all.
+
+<hr />
+
+**Summary**:
+* SQL Injection
+* Database Dumping
+* Unauthorized API remote communication (curl)
+
+<hr />
+
+Penetration tools were used for this, mainly Burp Suite and SQLMap from Kali Linux.
+
+TODO: more explanation
 
