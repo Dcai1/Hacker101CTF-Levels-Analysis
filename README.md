@@ -73,10 +73,11 @@ All in all, this is a **great** level for getting familiar with the basics of ev
 
 **Summary**:
 * Post ID Manipulation (again)
-* Brute forcing
+* Post ID Navigation
+* Password Brute Forcing
 * Inspect/Dev Tools Usage
 * API Manipulation
-* Session Manipulation
+* Session Cookie Manipulation
 
 <hr />
 
