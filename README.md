@@ -39,7 +39,7 @@ I'm going to skip ahead to the second level, since the first level is such a tut
 
 ## Micro CMS v1 - Easy
 
-**Takeaway:** This one was relatively **simple**. It lacked authorization checks, which as a consequence, allowed all users to act as if they were an admin, because there was nothing authorizing user actions!
+**Takeaway:** Relatively **simple**. It lacked authorization checks, which as a consequence, allowed all users to act as if they were an admin, because there was nothing authorizing user actions!
 
 <hr />
 
@@ -66,8 +66,7 @@ Anyway, not much to learn here. Let's move onto the next one, which is convenien
 
 ## Postbook - Easy
 
-**Takeaway:** This next **easy** difficulty level shows many of the **techniques**, **tactics**, and **procedures** that attackers will take in exploiting a web application, ranging from simple **inspect** element interactions, to techniques like **cookie manipulation**.  <br />
-All in all, this is a **great** level for getting familiar with the basics of every technique an attacker may use against our applications.
+**Takeaway:** **Don't use guessable, numeric IDs.** <br /> Blog-like application that had everything but authorization and standard ID labelling. Teaches many of the **techniques**, **tactics**, and **procedures** that attackers will take in exploiting a web application, ranging from **numeric** post ID interactions, to techniques like **brute-forcing** and **cookie manipulation**. <br />
 
 <hr />
 
@@ -81,13 +80,35 @@ All in all, this is a **great** level for getting familiar with the basics of ev
 
 <hr />
 
-I used a couple of penetration tools for this, mainly **Burp Suite** for intercepting internet traffic.
+I used a couple of penetration tools for this, mainly **Burp Suite** for intercepting internet traffic, and extensions that allow cookie editing.
 
 <hr />
 
 ### My Approach, Summarized
 
-TODO: add more
+This website gives me a blog-like feeling, with the posts, CRUD operations using API routes, and authentication. Though, not much for authorization. <br /> To summarize, this blog application has: <br />
+
+1. User Accounts + Authentication
+2. Numeric Post IDs
+3. API Routes
+5. Session Cookies
+6. No Authorization
+
+There are already two user accounts on the website: "**admin**" and "**user**". I brute-forced the password of both accounts, with only the latter proving successful (extremely weak password). This is why strong passwords should be **reinforced** using a **ReGex** check during account creation. <br /> <br /> 
+
+As a result, I signed in as **user** and gained access to all the current posts, including permissions of everything a regular user can do. <br />
+
+I tested the post `edit` and `delete` API routes. **No authorization**. <br />
+
+I combined this flaw with the existing numeric post IDs. **No authorization**, could edit and delete posts of **other** users. <br />
+
+Lastly, I viewed the session cookie and realized it was **hashed** with **MD5** because it was exactly **32 characters long**. I would **brute-force** the hash, but settled with educated guesses since all IDs so far were **numeric**. **It worked.** Just like posts, the cookie was just a numeric number hashed with MD5. I manipulated the values to sign in as the **admin** account. That was enough to end this challenge.
+
+<br />
+<br />
+
+Use unique UUIDs for post and account IDs. Hash them using stronger algorithms like SHA-512 and salting.
+
 
 <br />
 
